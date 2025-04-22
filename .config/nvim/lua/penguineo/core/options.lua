@@ -1,4 +1,3 @@
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.autoformat = true
@@ -14,16 +13,16 @@ opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 2
 opt.confirm = true
 opt.cursorline = true
-opt.expandtab = false
 opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  foldsep = " ",
-  diff = "╱",
-  eob = " ",
+	foldopen = "",
+	foldclose = "",
+	fold = " ",
+	foldsep = " ",
+	diff = "╱",
+	eob = " ",
 }
 opt.foldlevel = 99
+opt.textwidth = 80
 opt.formatoptions = "jcroqlnt"
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
@@ -42,7 +41,6 @@ opt.ruler = false
 opt.scrolloff = 4
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 opt.shiftround = true
-opt.shiftwidth = 2
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
 opt.showmode = false
 opt.sidescrolloff = 8
@@ -53,7 +51,10 @@ opt.spelllang = { "en" }
 opt.splitbelow = true
 opt.splitkeep = "screen"
 opt.splitright = true
-opt.tabstop = 2
+opt.expandtab = false
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop = 4
 opt.termguicolors = true
 opt.timeoutlen = vim.g.vscode and 1000 or 300
 opt.undofile = true
@@ -65,11 +66,11 @@ opt.winminwidth = 5
 opt.wrap = false
 
 if vim.fn.has("nvim-0.10") == 1 then
-  opt.smoothscroll = true
-  opt.foldmethod = "expr"
-  opt.foldtext = ""
+	opt.smoothscroll = true
+	opt.foldmethod = "expr"
+	opt.foldtext = ""
 else
-  opt.foldmethod = "indent"
+	opt.foldmethod = "indent"
 end
 
 vim.g.markdown_recommended_style = 0
