@@ -5,5 +5,5 @@ return {
 		require('lualine').get_config()
 		require('lualine').setup({
 		})
-		end,
-	}
+	end,
+}
