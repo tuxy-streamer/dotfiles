@@ -1,9 +1,7 @@
 return {
-	'sainnhe/gruvbox-material',
-	lazy = false,
+	"ellisonleao/gruvbox.nvim",
 	priority = 1000,
 	config = function()
-		vim.g.gruvbox_material_enable_italic = true
-		vim.cmd.colorscheme('gruvbox-material')
+		vim.cmd.colorscheme('gruvbox')
 	end
 }
