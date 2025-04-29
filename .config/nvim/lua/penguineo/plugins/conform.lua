@@ -3,15 +3,17 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require("conform").setup({
-			formatted_by_ft = {
+			formatters_by_ft = {
 				lua = { "stylua" },
-				python = { "ruff","isort", "blackd" },
+				python = { "ruff", "isort", "black" },
 				rust = { "rustfmt", lsp_format = "fallback" },
-				javascript = { "prettierd", "eslintd" },
-				typescript = { "prettierd", "eslintd" },
-				go = { "gofumpt", "goimports", "goimports-reviser", "golines", "gomodifytags", "gotests" },
+				javascript = { "prettier", "eslint" },
+				typescript = { "prettier", "eslint" },
+				go = { "goimports", "goimports-reviser", "golines", "gomodifytags", "gotests", "gofumpt" },
 				yaml = { "yamlfix", "yamlfmt" },
 				bash = { "shfmt" },
+				markdown = { "markdownlint-cli2", "prettier" },
+				css = { "prettier" },
 			},
 			format_on_save = function(bufnr)
 				if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
