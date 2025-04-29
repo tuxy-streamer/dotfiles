@@ -30,7 +30,7 @@ return {
 			vim.keymap.set("n", "<leader>so", builtin.builtin, { desc = "Telescope options" })
 			vim.keymap.set("n", "<leader>sv", builtin.vim_options, { desc = "Telescope vim options" })
 			vim.keymap.set("n", "<leader>sg", builtin.git_files, { desc = "Telescope git files" })
-
+			vim.keymap.set("n", "<leader>gR", builtin.lsp_references, { desc = "Telescope lsp references" })
 
 			-- No binary file preview
 			local previewers = require("telescope.previewers")
