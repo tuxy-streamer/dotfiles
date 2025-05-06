@@ -18,3 +18,6 @@ export PATH="$HOME/go/bin:$PATH"
 
 # starship
 eval "$(starship init bash)"
+
+# clipmenu
+export CM_LAUNCHER=rofi
