@@ -126,6 +126,16 @@ keys.extend([
     Key([mod], "m", lazy.group['scratchpad'].dropdown_toggle('email')),
     Key([mod], "f", lazy.group['scratchpad'].dropdown_toggle('tfm')),
 ])
+                "mmpv",
+                "kitty --class=mmpv -e mmpv",
+                width=0.8,
+                height=0.8,
+                x=0.1,
+                y=0.1,
+                opacity=0.9,
+            ),
+            DropDown(
+        Key([mod], "y", lazy.group["scratchpad"].dropdown_toggle("mmpv")),
 
 layouts = [
     layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
