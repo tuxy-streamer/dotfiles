@@ -59,6 +59,7 @@ keys = [
             Key([], "r", lazy.spawn("rofi -show run"), desc="Spawn run launcher"),
             Key([], "w", lazy.spawn("rofi -show window"), desc="Spawn window launcher"),
             Key([], "s", lazy.spawn("rofi -show ssh"), desc="Spawn ssh launcher"),
+            Key([], "c", lazy.spawn("clipmenu"), desc="Spawn ssh launcher"),
         ],
         mode=False,
         name="Launcher"),
