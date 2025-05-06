@@ -158,7 +158,7 @@ groups.append(
             ),
             DropDown(
                 "mmpv",
-                "kitty --class=mmpv -e mmpv",
+                'kitty --class=mmpv -e bash --login -c "mmpv"',
                 width=0.8,
                 height=0.8,
                 x=0.1,
