@@ -1,16 +1,27 @@
-from libqtile import bar, layout, qtile, widget
-from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen, ScratchPad, DropDown
-from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
 import os
 import subprocess
 
-from libqtile import hook
+from libqtile import bar, hook, layout, qtile, widget
+from libqtile.config import (
+    Click,
+    Drag,
+    DropDown,
+    Group,
+    Key,
+    KeyChord,
+    Match,
+    ScratchPad,
+    Screen,
+)
+from libqtile.lazy import lazy
+
 
 @hook.subscribe.startup_once
 def autostart():
-    autostart_script = os.path.expanduser('~/.config/autostart.sh')
+    autostart_script = os.path.expanduser("~/.config/autostart.sh")
     subprocess.call(autostart_script)
+
+
 mod = "mod1"
 terminal = "kitty"
 
@@ -19,12 +30,21 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key(
+        [mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
+    ),
+    Key(
+        [mod, "shift"],
+        "l",
+        lazy.layout.shuffle_right(),
+        desc="Move window to the right",
+    ),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key(
+        [mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
+    ),
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
@@ -49,11 +69,17 @@ keys = [
         lazy.window.toggle_fullscreen(),
         desc="Toggle fullscreen on the focused window",
     ),
-    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
+    Key(
+        [mod],
+        "t",
+        lazy.window.toggle_floating(),
+        desc="Toggle floating on the focused window",
+    ),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     KeyChord(
-        [mod],"r",
+        [mod],
+        "r",
         [
             Key([], "d", lazy.spawn("rofi -show drun"), desc="Spawn drun launcher"),
             Key([], "r", lazy.spawn("rofi -show run"), desc="Spawn run launcher"),
@@ -68,7 +94,8 @@ keys = [
             ),
         ],
         mode=False,
-        name="Launcher"),
+        name="Launcher",
+    ),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -110,22 +137,26 @@ for i in groups:
             #     desc="move focused window to group {}".format(i.name)),
         ]
     )
-groups.append(ScratchPad("scratchpad", [
-    DropDown("volume", "pavucontrol", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
-    DropDown("email", "betterbird", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
-    DropDown("btop", "kitty --class=btop -e btop", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
-    DropDown("cmus", "kitty --class=cmus -e cmus", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
-    DropDown("tfm", "kitty --class=yazi -e yazi", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
-
-]))
-
-keys.extend([
-    Key([mod], "s", lazy.group['scratchpad'].dropdown_toggle('cmus')),
-    Key([mod], "v", lazy.group['scratchpad'].dropdown_toggle('volume')),
-    Key([mod], "b", lazy.group['scratchpad'].dropdown_toggle('btop')),
-    Key([mod], "m", lazy.group['scratchpad'].dropdown_toggle('email')),
-    Key([mod], "f", lazy.group['scratchpad'].dropdown_toggle('tfm')),
-])
+groups.append(
+    ScratchPad(
+        "scratchpad",
+        [
+            DropDown(
+                "volume", "pavucontrol", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1
+            ),
+            DropDown(
+                "email", "betterbird", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1
+            ),
+            DropDown(
+                "btop",
+                "kitty --class=btop -e btop",
+                width=0.8,
+                height=0.8,
+                x=0.1,
+                y=0.1,
+                opacity=0.9,
+            ),
+            DropDown(
                 "mmpv",
                 "kitty --class=mmpv -e mmpv",
                 width=0.8,
@@ -135,7 +166,37 @@ keys.extend([
                 opacity=0.9,
             ),
             DropDown(
+                "cmus",
+                "kitty --class=cmus -e cmus",
+                width=0.8,
+                height=0.8,
+                x=0.1,
+                y=0.1,
+                opacity=0.9,
+            ),
+            DropDown(
+                "tfm",
+                "kitty --class=yazi -e yazi",
+                width=0.8,
+                height=0.8,
+                x=0.1,
+                y=0.1,
+                opacity=0.9,
+            ),
+        ],
+    )
+)
+
+keys.extend(
+    [
+        Key([mod], "s", lazy.group["scratchpad"].dropdown_toggle("cmus")),
+        Key([mod], "v", lazy.group["scratchpad"].dropdown_toggle("volume")),
+        Key([mod], "b", lazy.group["scratchpad"].dropdown_toggle("btop")),
         Key([mod], "y", lazy.group["scratchpad"].dropdown_toggle("mmpv")),
+        Key([mod], "m", lazy.group["scratchpad"].dropdown_toggle("email")),
+        Key([mod], "f", lazy.group["scratchpad"].dropdown_toggle("tfm")),
+    ]
+)
 
 layouts = [
     layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
@@ -195,8 +256,15 @@ screens = [
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Drag(
+        [mod],
+        "Button1",
+        lazy.window.set_position_floating(),
+        start=lazy.window.get_position(),
+    ),
+    Drag(
+        [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
+    ),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
