@@ -1,5 +1,5 @@
 return {
-	'stevearc/conform.nvim',
+	"stevearc/conform.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require("conform").setup({
@@ -7,9 +7,9 @@ return {
 				lua = { "stylua" },
 				python = { "ruff", "isort", "black" },
 				rust = { "rustfmt", lsp_format = "fallback" },
-				javascript = { "prettier", "eslint" },
-				typescript = { "prettier", "eslint" },
-				go = { "goimports", "goimports-reviser", "golines", "gomodifytags", "gotests", "gofumpt" },
+				javascript = { "prettier", "eslint_d" },
+				typescript = { "prettier", "eslint_d" },
+				go = { "gofumpt", "goimports-reviser", "golines", "gomodifytags", "golangci-lint" },
 				yaml = { "yamlfix", "yamlfmt" },
 				json = { "fixjson", "prettier" },
 				bash = { "shfmt" },

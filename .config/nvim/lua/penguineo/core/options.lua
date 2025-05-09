@@ -65,6 +65,7 @@ opt.wildmode = "longest:full,full"
 opt.winminwidth = 5
 opt.wrap = false
 
+
 if vim.fn.has("nvim-0.10") == 1 then
 	opt.smoothscroll = true
 	opt.foldmethod = "expr"
