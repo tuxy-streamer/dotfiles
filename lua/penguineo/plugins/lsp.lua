@@ -1,35 +1,33 @@
 return {
-	-- Auto-completion setup
 	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		dependencies = {
-			"hrsh7th/cmp-buffer", -- Buffer completions
-			"hrsh7th/cmp-path", -- Path completions
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
 			{
 				"L3MON4D3/LuaSnip",
 				version = "v2.*",
-				build = "make install_jsregexp", -- Make sure you have JS regexp support
+				build = "make install_jsregexp",
 			},
-			"saadparwaiz1/cmp_luasnip", -- LuaSnip completions
-			"rafamadriz/friendly-snippets", -- A collection of useful snippets
-			"onsails/lspkind.nvim",  -- Adds icons to completion items
+			"saadparwaiz1/cmp_luasnip",
+			"rafamadriz/friendly-snippets",
+			"onsails/lspkind.nvim",
 		},
 		config = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			local lspkind = require("lspkind")
 
-			-- Lazy load VSCode-style snippets
 			require("luasnip.loaders.from_vscode").lazy_load()
 
 			cmp.setup({
 				completion = {
-					completeopt = "menu,menuone,preview,noselect", -- Completion settings
+					completeopt = "menu,menuone,preview,noselect",
 				},
 				snippet = {
 					expand = function(args)
-						luasnip.lsp_expand(args.body) -- Snippet expansion for LuaSnip
+						luasnip.lsp_expand(args.body)
 					end,
 				},
 				mapping = cmp.mapping.preset.insert({
@@ -42,10 +40,10 @@ return {
 					["<C-y>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" }, -- LSP completions
-					{ name = "luasnip" }, -- Snippet completions
-					{ name = "buffer" }, -- Buffer completions
-					{ name = "path" }, -- Path completions
+					{ name = "luasnip" },
+					{ name = "nvim_lsp" },
+					{ name = "buffer" },
+					{ name = "path" },
 				}),
 				formatting = {
 					expandable_indicator = true,
@@ -58,19 +56,17 @@ return {
 		end,
 	},
 
-	-- Mason setup for managing LSP servers and tools
 	{
 		"williamboman/mason.nvim",
 		dependencies = {
-			"williamboman/mason-lspconfig.nvim", -- Mason integration with lspconfig
-			"WhoIsSethDaniel/mason-tool-installer.nvim", -- Manage external tools
+			"williamboman/mason-lspconfig.nvim",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
 		},
 		config = function()
 			local mason = require("mason")
 			local mason_lspconfig = require("mason-lspconfig")
 			local mason_tool_installer = require("mason-tool-installer")
 
-			-- Mason setup for package installation
 			mason.setup({
 				ui = {
 					icons = {
@@ -81,17 +77,24 @@ return {
 				},
 			})
 
-			-- Automatically install LSP servers
 			mason_lspconfig.setup({
 				ensure_installed = {
-					"html", "cssls", "tailwindcss", "lua_ls", "ruff", -- Add LSP servers to install
+					"html",
+					"cssls",
+					"tailwindcss",
+					"lua_ls",
+					"ruff",
 				},
 			})
 
-			-- Automatically install external tools like linters and formatters
 			mason_tool_installer.setup({
 				ensure_installed = {
-					"prettier", "stylua", "isort", "black", "pylint", "eslint_d", -- Add tools to install
+					"prettier",
+					"stylua",
+					"isort",
+					"black",
+					"pylint",
+					"eslint_d",
 				},
 			})
 		end,
@@ -102,15 +105,14 @@ return {
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",                          -- LSP support for nvim-cmp
+			"hrsh7th/cmp-nvim-lsp", -- LSP support for nvim-cmp
 			{ "antosha417/nvim-lsp-file-operations", config = true }, -- LSP file operations like rename
-			{ "folke/neodev.nvim",                   opts = {} }, -- Lua development setup
+			{ "folke/neodev.nvim", opts = {} }, -- Lua development setup
 		},
 		config = function()
 			local lspconfig = require("lspconfig")
 			local mason_lspconfig = require("mason-lspconfig")
 			local cmp_nvim_lsp = require("cmp_nvim_lsp")
-			local keymap = vim.keymap
 
 			-- Create autocommand group for LSP Attach
 			-- Correcting the LspAttach callback function with valid key mappings
@@ -155,11 +157,15 @@ return {
 
 					-- Go to previous diagnostic
 					opts.desc = "Go to previous diagnostic"
-					vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+					vim.keymap.set("n", "[d", function()
+						vim.diagnostic.jump({ count = -1, float = true })
+					end, opts)
 
 					-- Go to next diagnostic
 					opts.desc = "Go to next diagnostic"
-					vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+					vim.keymap.set("n", "]d", function()
+						vim.diagnostic.jump({count = 1, float = true})
+					end, opts)
 
 					-- Show documentation for what is under cursor
 					opts.desc = "Show documentation for what is under cursor"
@@ -201,30 +207,6 @@ return {
 							},
 						},
 					})
-				end,
-			})
-		end,
-	},
-
-	-- Linting setup
-	{
-		"mfussenegger/nvim-lint",
-		event = { "BufReadPost", "BufNewFile" },
-		config = function()
-			require("lint").linters_by_ft = {
-				go = { "gospel" },
-				lua = { "luacheck" },
-				python = { "mypy" },
-				css = { "stylelint" },
-				markdown = { "markdownlint-cli2" },
-				yaml = { "yamllint" },
-				html = { "htmlhint" }
-			}
-
-			-- Lint on write, enter, and after insert leave
-			vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "InsertLeave" }, {
-				callback = function()
-					require("lint").try_lint()
 				end,
 			})
 		end,
