@@ -9,6 +9,7 @@ return {
 			css = { "stylelint" },
 			markdown = { "markdownlint-cli2" },
 			yaml = { "yamllint" },
+			json = { "jsonlint" },
 			html = { "htmlhint" },
 			rust = { "clippy" },
 		}

@@ -11,6 +11,7 @@ return {
 				typescript = { "prettier", "eslint" },
 				go = { "goimports", "goimports-reviser", "golines", "gomodifytags", "gotests", "gofumpt" },
 				yaml = { "yamlfix", "yamlfmt" },
+				json = { "fixjson", "prettier" },
 				bash = { "shfmt" },
 				markdown = { "markdownlint-cli2", "prettier" },
 				css = { "prettier" },
