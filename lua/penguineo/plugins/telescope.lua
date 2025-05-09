@@ -1,9 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim",
-			{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
-		},
+		dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
 		config = function()
 			local builtin = require("telescope.builtin")
 			local actions = require("telescope.actions")
@@ -22,10 +20,7 @@ return {
 					},
 				},
 			})
-			require('telescope').load_extension('fzf')
-			vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "Telescope find files" })
-			vim.keymap.set("n", "<leader>sl", builtin.live_grep, { desc = "Telescope live grep" })
-			vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "Telescope buffers" })
+			require("telescope").load_extension("fzf")
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Telescope help tags" })
 			vim.keymap.set("n", "<leader>so", builtin.builtin, { desc = "Telescope options" })
 			vim.keymap.set("n", "<leader>sv", builtin.vim_options, { desc = "Telescope vim options" })
@@ -50,31 +45,15 @@ return {
 								vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "BINARY" })
 							end)
 						end
-					end
+					end,
 				}):sync()
 			end
 
-			require("telescope").setup {
+			require("telescope").setup({
 				defaults = {
 					buffer_previewer_maker = new_maker,
-				}
-			}
-		end,
-	},
-	{
-		"stevearc/dressing.nvim",
-		lazy = true,
-		init = function()
-			---@diagnostic disable-next-line: duplicate-set-field
-			vim.ui.select = function(...)
-				require("lazy").load({ plugins = { "dressing.nvim" } })
-				return vim.ui.select(...)
-			end
-			---@diagnostic disable-next-line: duplicate-set-field
-			vim.ui.input = function(...)
-				require("lazy").load({ plugins = { "dressing.nvim" } })
-				return vim.ui.input(...)
-			end
+				},
+			})
 		end,
 	},
 }
