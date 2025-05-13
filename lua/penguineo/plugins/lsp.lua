@@ -84,6 +84,7 @@ return {
 					"tailwindcss",
 					"lua_ls",
 					"ruff",
+					"cssls",
 				},
 				automatic_enable = true,
 			})
