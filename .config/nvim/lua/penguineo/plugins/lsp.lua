@@ -85,6 +85,7 @@ return {
 					"lua_ls",
 					"ruff",
 				},
+				automatic_enable = true,
 			})
 
 			mason_tool_installer.setup({
