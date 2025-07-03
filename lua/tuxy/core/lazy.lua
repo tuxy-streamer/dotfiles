@@ -6,7 +6,7 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
+		"--branch=stable",
 		lazypath,
 	})
 end
@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-		{ import = "penguineo.plugins" },
+		{ import = "tuxy.plugins" },
 	},
 	defaults = {
 		lazy = false,
@@ -28,13 +28,27 @@ require("lazy").setup({
 			rtp = {
 				disabled_plugins = {
 					"gzip",
-					"netrwPlugin",
-					"tarPlugin",
-					"tohtml",
-					"tutor",
+					"zip",
 					"zipPlugin",
+					"tar",
+					"tarPlugin",
+					"getscript",
+					"getscriptPlugin",
+					"vimball",
+					"vimballPlugin",
+					"2html_plugin",
+					"logipat",
+					"rrhelper",
+					"netrw",
+					"netrwPlugin",
+					"netrwSettings",
+					"netrwFileHandlers",
 				},
 			},
 		},
+	},
+	profile = {
+		enabled = true,
+		threshold = 1,
 	},
 })

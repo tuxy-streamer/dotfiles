@@ -2,13 +2,14 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
+		cmd = "Telescope",
 		config = function()
-			local builtin = require("telescope.builtin")
-			local actions = require("telescope.actions")
+			local themes = require("telescope.themes")
 			require("telescope").setup({
+				defaults = themes.get_ivy(),
 				pickers = {
 					find_files = {
-						themes = "ivy",
+						find_command = { "fd", "--type", "f", "--follow" },
 					},
 				},
 				extensions = {
@@ -21,11 +22,6 @@ return {
 				},
 			})
 			require("telescope").load_extension("fzf")
-			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Telescope help tags" })
-			vim.keymap.set("n", "<leader>so", builtin.builtin, { desc = "Telescope options" })
-			vim.keymap.set("n", "<leader>sv", builtin.vim_options, { desc = "Telescope vim options" })
-			vim.keymap.set("n", "<leader>sg", builtin.git_files, { desc = "Telescope git files" })
-			vim.keymap.set("n", "<leader>gR", builtin.lsp_references, { desc = "Telescope lsp references" })
 
 			-- No binary file preview
 			local previewers = require("telescope.previewers")
@@ -40,7 +36,6 @@ return {
 						if mime_type == "text" then
 							previewers.buffer_previewer_maker(filepath, bufnr, opts)
 						else
-							-- maybe we want to write something to the buffer here
 							vim.schedule(function()
 								vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "BINARY" })
 							end)
@@ -54,6 +49,21 @@ return {
 					buffer_previewer_maker = new_maker,
 				},
 			})
+		end,
+	},
+	{
+		"stevearc/dressing.nvim",
+		event = "VeryLazy",
+		lazy = true,
+		init = function()
+			vim.ui.select = function(...)
+				require("lazy").load({ plugins = { "dressing.nvim" } })
+				return vim.ui.select(...)
+			end
+			vim.ui.input = function(...)
+				require("lazy").load({ plugins = { "dressing.nvim" } })
+				return vim.ui.input(...)
+			end
 		end,
 	},
 }
