@@ -1,10 +1,3 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-vim.g.autoformat = true
-vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
-vim.g.deprecation_warnings = true
-vim.g.trouble_lualine = true
-
 local opt = vim.opt
 
 opt.autowrite = true
@@ -65,7 +58,6 @@ opt.wildmode = "longest:full,full"
 opt.winminwidth = 5
 opt.wrap = false
 
-
 if vim.fn.has("nvim-0.10") == 1 then
 	opt.smoothscroll = true
 	opt.foldmethod = "expr"
@@ -74,4 +66,14 @@ else
 	opt.foldmethod = "indent"
 end
 
-vim.g.markdown_recommended_style = 0
+vim.loader.enable()
+
+vim.cmd([[
+  highlight Normal guibg=NONE ctermbg=NONE
+  highlight NormalNC guibg=NONE ctermbg=NONE
+  highlight SignColumn guibg=NONE ctermbg=NONE
+  highlight VertSplit guibg=NONE ctermbg=NONE
+  highlight StatusLine guibg=NONE ctermbg=NONE
+  highlight LineNr guibg=NONE ctermbg=NONE
+  highlight Folded guibg=NONE ctermbg=NONE
+]])
