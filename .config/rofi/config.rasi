@@ -1,14 +1,16 @@
 configuration {
     show-icons: true;
-    font: "Firacode Nerd Font Mono 12";
+	font: "IosevkaTerm Nerd Font Mono";
     icon-theme: "Papirus-Dark";
 
-    display-ssh:    "󰣀 ssh:";
-    display-run:    "󱓞 run:";
-    display-drun:   "󰣖 drun:";
-    display-window: "󱂬 window:";
-    display-combi:  "󰕘 combi:";
-    display-filebrowser: "󰉋 filebrowser:";
+    display-ssh:    "ssh:";
+    display-run:    "run:";
+    display-drun:   "drun:";
+    display-window: "window:";
+    display-combi:  "combi:";
+    display-filebrowser: "filebrowser:";
+    display-recursivebrowser: "recursivebrowser:";
+    display-keys: "keys:";
 
     dpi: 120;
 }
