@@ -1,8 +1,4 @@
 configuration {
-    show-icons: true;
-	font: "IosevkaTerm Nerd Font Mono";
-    icon-theme: "Papirus-Dark";
-
     display-ssh:    "ssh:";
     display-run:    "run:";
     display-drun:   "drun:";
@@ -11,8 +7,7 @@ configuration {
     display-filebrowser: "filebrowser:";
     display-recursivebrowser: "recursivebrowser:";
     display-keys: "keys:";
-
     dpi: 120;
 }
 
-@theme "gruvbox-material-dark"
+@theme "gruvbox-squared-dark"
