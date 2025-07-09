@@ -22,8 +22,6 @@ def autostart():
     subprocess.call(autostart_script)
 
 
-mod = "mod1"
-terminal = "kitty"
 gruvbox_dark = {
     "black": "#282828",
     "red": "#cc241d",
@@ -35,62 +33,67 @@ gruvbox_dark = {
     "white": "#a89984",
     "pale": "#fbf1c7",
 }
+
 COLORSCHEME = gruvbox_dark
+FONT = "M+CodeLat50"
+MOD = "mod1"
+TERMINAL = "alacritty"
+EMAIL_CLIENT = "betterbird"
 
 keys = [
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([MOD], "h", lazy.layout.left(), desc="Move focus to left"),
+    Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
+    Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
     Key(
-        [mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
+        [MOD, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
     ),
     Key(
-        [mod, "shift"],
+        [MOD, "shift"],
         "l",
         lazy.layout.shuffle_right(),
         desc="Move window to the right",
     ),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key([MOD, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([MOD, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([MOD, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key(
-        [mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
+        [MOD, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
     ),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    Key([mod], "Tab", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([MOD, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([MOD, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([MOD], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    Key([MOD], "Tab", lazy.layout.next(), desc="Move window focus to other window"),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     Key(
-        [mod, "shift"],
+        [MOD, "shift"],
         "Return",
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([MOD], "Return", lazy.spawn(TERMINAL), desc="Launch terminal"),
     # Toggle between different layouts as defined below
-    Key([mod], "space", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
+    Key([MOD], "space", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([MOD], "q", lazy.window.kill(), desc="Kill focused window"),
     Key(
-        [mod, "control"],
+        [MOD, "control"],
         "f",
         lazy.window.toggle_fullscreen(),
         desc="Toggle fullscreen on the focused window",
     ),
     Key(
-        [mod],
+        [MOD],
         "t",
         lazy.window.toggle_floating(),
         desc="Toggle floating on the focused window",
     ),
-    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([MOD, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([MOD, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     KeyChord(
-        [mod],
+        [MOD],
         "r",
         [
             Key([], "d", lazy.spawn("rofi -show drun"), desc="Spawn drun launcher"),
@@ -129,16 +132,14 @@ groups = [Group(i) for i in "123456789"]
 for i in groups:
     keys.extend(
         [
-            # mod + group number = switch to group
             Key(
-                [mod],
+                [MOD],
                 i.name,
                 lazy.group[i.name].toscreen(),
                 desc=f"Switch to group {i.name}",
             ),
-            # mod + shift + group number = switch to & move focused window to group
             Key(
-                [mod, "shift"],
+                [MOD, "shift"],
                 i.name,
                 lazy.window.togroup(i.name, switch_group=True),
                 desc=f"Switch to & move focused window to group {i.name}",
@@ -157,11 +158,17 @@ groups.append(
                 "volume", "pavucontrol", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1
             ),
             DropDown(
-                "email", "betterbird", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1
+                "email",
+                f"{EMAIL_CLIENT}",
+                width=0.8,
+                height=0.8,
+                x=0.1,
+                y=0.1,
+                opacity=1,
             ),
             DropDown(
                 "btop",
-                "kitty --class=btop -e btop",
+                f"{TERMINAL} --class=btop -e btop",
                 width=0.8,
                 height=0.8,
                 x=0.1,
@@ -170,7 +177,7 @@ groups.append(
             ),
             DropDown(
                 "mmpv",
-                'kitty --class=mmpv -e bash --login -c "mmpv"',
+                f"{TERMINAL} --class=zathura -e zathura",
                 width=0.8,
                 height=0.8,
                 x=0.1,
@@ -179,7 +186,7 @@ groups.append(
             ),
             DropDown(
                 "cmus",
-                "kitty --class=cmus -e cmus",
+                f"{TERMINAL} --class=cmus -e cmus",
                 width=0.8,
                 height=0.8,
                 x=0.1,
@@ -188,7 +195,7 @@ groups.append(
             ),
             DropDown(
                 "tfm",
-                "kitty --class=yazi -e yazi",
+                f"{TERMINAL} --class=yazi -e yazi",
                 width=0.8,
                 height=0.8,
                 x=0.1,
@@ -201,23 +208,37 @@ groups.append(
 
 keys.extend(
     [
-        Key([mod], "s", lazy.group["scratchpad"].dropdown_toggle("cmus")),
-        Key([mod], "v", lazy.group["scratchpad"].dropdown_toggle("volume")),
-        Key([mod], "b", lazy.group["scratchpad"].dropdown_toggle("btop")),
-        Key([mod], "y", lazy.group["scratchpad"].dropdown_toggle("mmpv")),
-        Key([mod], "m", lazy.group["scratchpad"].dropdown_toggle("email")),
-        Key([mod], "f", lazy.group["scratchpad"].dropdown_toggle("tfm")),
+        Key([MOD], "s", lazy.group["scratchpad"].dropdown_toggle("cmus")),
+        Key([MOD], "v", lazy.group["scratchpad"].dropdown_toggle("volume")),
+        Key([MOD], "b", lazy.group["scratchpad"].dropdown_toggle("btop")),
+        Key([MOD], "y", lazy.group["scratchpad"].dropdown_toggle("mmpv")),
+        Key([MOD], "m", lazy.group["scratchpad"].dropdown_toggle("email")),
+        Key([MOD], "f", lazy.group["scratchpad"].dropdown_toggle("tfm")),
     ]
 )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.Max(),
+    layout.Columns(
+        border_focus=COLORSCHEME["pale"],
+        border_normal=COLORSCHEME["black"],
+        border_width=2,
+    ),
+    layout.Max(
+        border_focus=COLORSCHEME["pale"],
+        border_normal=COLORSCHEME["black"],
+    ),
     # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
+    layout.Stack(
+        border_focus=COLORSCHEME["pale"],
+        border_normal=COLORSCHEME["black"],
+        num_stacks=2,
+    ),
     # layout.Bsp(),
     # layout.Matrix(),
-    # layout.MonadTall(),
+    layout.MonadTall(
+        border_focus=COLORSCHEME["pale"],
+        border_normal=COLORSCHEME["black"],
+    ),
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
@@ -269,19 +290,19 @@ screens = [
 # Drag floating layouts.
 mouse = [
     Drag(
-        [mod],
+        [MOD],
         "Button1",
         lazy.window.set_position_floating(),
         start=lazy.window.get_position(),
     ),
     Drag(
-        [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
+        [MOD], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
     ),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
+    Click([MOD], "Button2", lazy.window.bring_to_front()),
 ]
 
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: list
+dgroups_app_rules = []
 follow_mouse_focus = True
 bring_front_click = False
 floats_kept_above = True
