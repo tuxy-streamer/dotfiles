@@ -127,7 +127,36 @@ for vt in range(1, 8):
     )
 
 
-groups = [Group(i) for i in "123456789"]
+groups = [
+    Group(
+        "1",
+        label="web",
+        matches=[Match(wm_class="brave"), Match(wm_class="zathura")],
+    ),
+    Group("2", label="task", matches=[Match(wm_class="")]),
+    Group(
+        "3",
+        label="note",
+        matches=[
+            Match(wm_class="com.github.xournalpp.xournalpp"),
+            Match(wm_class="rnote"),
+            Match(wm_class="notes"),
+        ],
+        layout="max",
+    ),
+    Group("4", label="dev", matches=[Match(wm_class="code")]),
+    Group("5", label="game", matches=[Match(wm_class="mgba-qt")]),
+    Group(
+        "6",
+        label="chat",
+        matches=[
+            Match(wm_class="telegram-desktop"),
+        ],
+    ),
+    Group("7", label="passive", matches=[Match(wm_class="easyeffects")]),
+    Group("8", label="virt", matches=[Match(wm_class="virt-manager")]),
+    Group("9", label=""),
+]
 
 for i in groups:
     keys.extend(
@@ -150,6 +179,7 @@ for i in groups:
             #     desc="move focused window to group {}".format(i.name)),
         ]
     )
+
 groups.append(
     ScratchPad(
         "scratchpad",
