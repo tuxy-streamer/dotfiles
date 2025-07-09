@@ -1,0 +1,28 @@
+palette = "gruvbox_dark"
+
+format = "$directory$character"
+right_format = "$all"
+
+command_timeout = 1000
+
+[palettes.gruvbox_dark]
+color_fg0 = "#fbf1c7"
+color_red = "#cc241d"
+color_aqua = "#689d6a"
+
+[directory]
+style = "fg:color_fg0"
+read_only = " 󰌾"
+
+[git_branch]
+symbol = ""
+format = '[$symbol$branch(:$remote_branch)]($style)'
+
+[git_status]
+format = '[$all_status$ahead_behind]($style)'
+style = "fg:color_fg0 bg:color_aqua"
+
+[character]
+disabled = false
+success_symbol = "[>](fg:color_fg0)"
+error_symbol = "[>](fg:color_red)"
