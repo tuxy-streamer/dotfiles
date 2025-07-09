@@ -1,0 +1,5 @@
+pane	notes	1	1	:*	0	tuxy@archlinux:/storage/personal/notes	:/storage/personal/notes	1	nvim	:nvim Life/games-list.md
+pane	tmux	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/tmux	:/storage/projects/repos/dotfiles/.config/tmux	1	nvim	:nvim tmux.conf
+window	notes	1	:nvim	1	:*	c9df,68x29,0,0,2	:
+window	tmux	1	:nvim	1	:*	c9de,68x29,0,0,1	:
+state	notes	
