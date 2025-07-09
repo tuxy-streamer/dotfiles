@@ -246,6 +246,66 @@ keys.extend(
         Key([MOD], "f", lazy.group["scratchpad"].dropdown_toggle("tfm")),
     ]
 )
+widget_defaults = {
+    "font": FONT,
+    "fontsize": 16,
+    "rounded": False,
+    "background": COLORSCHEME["black"],
+    "foreground": COLORSCHEME["pale"],
+    "active": COLORSCHEME["pale"],
+    "inactive": COLORSCHEME["white"],
+    "highlight_method": "line",
+    "highlight_color": COLORSCHEME["black"],
+    "this_current_screen_border": COLORSCHEME["pale"],
+}
+extension_defaults = widget_defaults.copy()
+
+widgets = [
+    widget.GroupBox(
+        disable_drag=True,
+        use_mouse_wheel=False,
+        hide_unused=True,
+    ),
+    widget.Spacer(),
+    widget.Cmus(
+        format="{status_text}  {artist} - {title}",
+        play_icon="",
+        playing_text="",
+        playing_color=COLORSCHEME["pale"],
+        pause_icon="",
+        paused_text="",
+        paused_color=COLORSCHEME["pale"],
+    ),
+    widget.Spacer(),
+    widget.Battery(
+        format="{char} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f} W",
+        charging_char="󰂄",
+        discharging_char="v",
+        full_char="󰁹",
+        full_short_text="󰁹",
+        low_percentage=0.2,
+        low_foreground=COLORSCHEME["red"],
+        empty_char="󰂎",
+        empty_short_text="󰂎",
+        unknown_char="󰂃",
+        update_interval=10,
+    ),
+    widget.Clock(),
+    widget.Systray(icon_size=20),
+]
+
+screens = [
+    Screen(
+        top=bar.Bar(
+            widgets,
+            40,
+            background=COLORSCHEME["black"],
+            margin=0,
+            border_width=0,
+            opacity=1.0,
+        )
+    )
+]
 
 layouts = [
     layout.Columns(
@@ -277,39 +337,6 @@ layouts = [
     # layout.Zoomy(),
 ]
 
-widget_defaults = dict(
-    font="sans",
-    fontsize=12,
-    padding=3,
-)
-extension_defaults = widget_defaults.copy()
-
-screens = [
-    Screen(
-        bottom=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
-            ],
-            24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
-        ),
 # Drag floating layouts.
 mouse = [
     Drag(
