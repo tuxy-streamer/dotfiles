@@ -13,3 +13,4 @@ easyeffects &
 Telegram &
 vesktop &
 rnote &
+setxkbmap -option caps:escape
