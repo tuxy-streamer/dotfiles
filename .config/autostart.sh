@@ -10,5 +10,6 @@ dunst &
 feh --bg-fill --borderless /storage/personal/wallpaper/gruvbox/gruvbox-dark.png &
 brave &
 easyeffects &
-telegram-desktop &
+Telegram &
+vesktop &
 rnote &
