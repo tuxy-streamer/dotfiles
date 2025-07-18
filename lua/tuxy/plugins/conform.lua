@@ -7,15 +7,17 @@ return {
 				lua = { "stylua" },
 				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 				rust = { "rustfmt", lsp_format = "fallback" },
+				cpp = { "clang-format" },
 				javascript = { "prettierd", "eslint_d" },
 				typescript = { "prettierd", "eslint_d" },
-				go = { "gofumpt", "goimports-reviser", "golines","gomodifytags", "gotests" },
+				go = { "gofumpt", "goimports-reviser", "golines", "gomodifytags", "gotests" },
 				yaml = { "yamlfix", "yamlfmt" },
 				json = { "fixjson", "prettierd" },
 				bash = { "shellcheck", "shellharden", "shfmt" },
 				markdown = { "prettierd" },
 				css = { "prettierd" },
-				sql = {"pgformatter"}
+				sql = { "pgformatter" },
+				assembly = { "asmfmt" },
 			},
 			format_on_save = function(bufnr)
 				if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
