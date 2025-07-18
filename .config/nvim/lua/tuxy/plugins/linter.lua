@@ -13,8 +13,9 @@ return {
 			json = { "jsonlint" },
 			html = { "htmlhint" },
 			rust = { "clippy" },
+			cpp = { "clangtidy" },
 			bash = { "shellcheck", "shellharden" },
-			sql = {"sqlfluff", "sqruff"}, 
+			sql = { "sqlfluff", "sqruff" },
 		}
 
 		vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "InsertLeave" }, {
