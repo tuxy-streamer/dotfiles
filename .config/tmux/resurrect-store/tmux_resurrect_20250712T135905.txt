@@ -1,0 +1,27 @@
+pane	13	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/adventofcode	:/storage/projects/repos/adventofcode	1	bash	:
+pane	alacritty	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/alacritty	:/storage/projects/repos/dotfiles/.config/alacritty	1	nvim	:nvim alacritty.toml
+pane	autostart	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config	:/storage/projects/repos/dotfiles/.config	1	nvim	:nvim autostart.sh
+pane	dsago	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dsago	:/storage/projects/repos/dsago	1	nvim	:nvim
+pane	notes	1	1	:*	0	tuxy@archlinux:/storage/personal/notes	:/storage/personal/notes	1	nvim	:nvim Life/games-list.md
+pane	nvim	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/nvim	:/storage/projects/repos/dotfiles/.config/nvim	1	nvim	:nvim init.lua
+pane	picom	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/picom	:/storage/projects/repos/dotfiles/.config/picom	1	nvim	:nvim picom.conf
+pane	qtile	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/qtile	:/storage/projects/repos/dotfiles/.config/qtile	1	nvim	:nvim config.py
+pane	something	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/something	:/storage/projects/repos/something	1	nvim	:nvim cmd/main.go
+pane	something	2	0	:	0	tuxy@archlinux:/storage/projects/repos/something	:/storage/projects/repos/something	1	bash	:
+pane	something	3	0	:	0	tuxy@archlinux:/storage/projects/repos/something	:/storage/projects/repos/something	1	bash	:
+pane	syncmarks	1	1	:*	0	tuxy@archlinux:~	:/home/tuxy	1	nvim	:nvim main.py
+pane	tmux	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/tmux	:/storage/projects/repos/dotfiles/.config/tmux	1	nvim	:nvim tmux.conf
+window	13	1	:bash	1	:*	5d54,159x33,0,0,15	:
+window	alacritty	1	:nvim	1	:*	ba3f,159x33,0,0,2	:
+window	autostart	1	:nvim	1	:*	ce40,136x29,0,0,3	:
+window	dsago	1	:nvim	1	:*	ce41,136x29,0,0,4	:
+window	notes	1	:nvim	1	:*	ba42,159x33,0,0,5	:
+window	nvim	1	:nvim	1	:*	c963,67x29,0,0,6	:
+window	picom	1	:nvim	1	:*	c9e4,68x29,0,0,7	:
+window	qtile	1	:nvim	1	:*	cdc5,135x29,0,0,8	:
+window	something	1	:nvim	1	:*	ce46,136x29,0,0,9	:
+window	something	2	:server	0	:	674f,136x29,0,0,10	off
+window	something	3	:frontend	0	:	6750,136x29,0,0,11	off
+window	syncmarks	1	:nvim	1	:*	6751,136x29,0,0,12	:
+window	tmux	1	:nvim	1	:*	57e2,67x13,0,0,13	:
+state	13	
