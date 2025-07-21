@@ -18,9 +18,15 @@ return {
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
+				"asm-lsp",
 				"lua_ls",
 				"rust_analyzer",
 				"gopls",
+				"ruff",
+				"marksman",
+				"bashls",
+				"jsonls",
+				"zls",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
