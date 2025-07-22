@@ -131,7 +131,7 @@ groups = [
     Group(
         "1",
         label="web",
-        matches=[Match(wm_class="brave"), Match(wm_class="zathura")],
+        matches=[Match(wm_class="waterfox"), Match(wm_class="zathura")],
     ),
     Group("2", label="task", matches=[Match(wm_class="")]),
     Group(
@@ -150,7 +150,8 @@ groups = [
         "6",
         label="chat",
         matches=[
-            Match(wm_class="telegram-desktop"),
+            Match(wm_class="Telegram"),
+            Match(wm_class="vesktop"),
         ],
     ),
     Group("7", label="passive", matches=[Match(wm_class="easyeffects")]),
