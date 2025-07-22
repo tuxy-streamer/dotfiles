@@ -16,6 +16,7 @@ return {
 			cpp = { "clangtidy" },
 			bash = { "shellcheck", "shellharden" },
 			sql = { "sqlfluff", "sqruff" },
+			makefile = { "checkmake" },
 		}
 
 		vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "InsertLeave" }, {
