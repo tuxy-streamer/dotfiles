@@ -18,7 +18,7 @@ return {
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
-				"asm-lsp",
+				"asm_lsp",
 				"lua_ls",
 				"rust_analyzer",
 				"gopls",
