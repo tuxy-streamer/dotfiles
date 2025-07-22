@@ -13,7 +13,7 @@ return {
 				go = { "gofumpt", "goimports-reviser", "golines", "gomodifytags", "gotests" },
 				yaml = { "yamlfix", "yamlfmt" },
 				json = { "fixjson", "prettierd" },
-				bash = { "shellcheck", "shellharden", "shfmt" },
+				bash = { "shellharden", "shfmt" },
 				markdown = { "prettierd" },
 				css = { "prettierd" },
 				sql = { "pgformatter" },
