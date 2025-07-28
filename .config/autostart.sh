@@ -5,10 +5,9 @@ tmux_startup() {
 	alacritty --class=notes -e tmux a -t notes &
 }
 tmux_startup &
-picom -b &
 dunst &
 feh --bg-fill --borderless /storage/personal/wallpaper/gruvbox/gruvbox-dark.png &
-brave &
+waterfox &
 easyeffects &
 Telegram &
 vesktop &
