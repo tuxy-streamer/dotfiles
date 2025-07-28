@@ -25,3 +25,14 @@ export CM_LAUNCHER=rofi
 
 # zoxide
 eval "$(zoxide init bash)"
+
+# xtensa-lx106
+export PATH="$PATH:$HOME/esp/xtensa-lx106-elf/bin"
+
+# esp8266 idf
+export IDF_PATH="$HOME/esp/ESP8266_RTOS_SDK"
+
+# pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
