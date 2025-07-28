@@ -130,12 +130,6 @@ for vt in range(1, 8):
 groups = [
     Group(
         "1",
-        label="web",
-        matches=[Match(wm_class="waterfox"), Match(wm_class="zathura")],
-    ),
-    Group("2", label="task", matches=[Match(wm_class="")]),
-    Group(
-        "3",
         label="note",
         matches=[
             Match(wm_class="com.github.xournalpp.xournalpp"),
@@ -144,19 +138,25 @@ groups = [
         ],
         layout="max",
     ),
-    Group("4", label="dev", matches=[Match(wm_class="code")]),
-    Group("5", label="game", matches=[Match(wm_class="mgba-qt")]),
     Group(
-        "6",
+        "2",
+        label="web",
+        matches=[Match(wm_class="waterfox")],
+        layout="max",
+    ),
+    Group("3", label="dev", matches=[Match(wm_class="code")], layout="max"),
+    Group(
+        "4",
         label="chat",
         matches=[
             Match(wm_class="Telegram"),
             Match(wm_class="vesktop"),
         ],
+        layout="max",
     ),
-    Group("7", label="passive", matches=[Match(wm_class="easyeffects")]),
-    Group("8", label="virt", matches=[Match(wm_class="virt-manager")]),
-    Group("9", label=""),
+    Group("5", label="game", matches=[Match(wm_class="mgba-qt")], layout="max"),
+    Group("6", label="passive", matches=[Match(wm_class="easyeffects")]),
+    Group("7", label="virt", matches=[Match(wm_class="virt-manager")]),
 ]
 
 for i in groups:
