@@ -1,6 +1,5 @@
 gitb() {
-	branch=$(git branch -l | sed '/*/d' | fzf)
-	git checkout "$branch"
+	git checkout "$(git branch -l | sed '/*/d' | fzf)"
 }
 
 gitr() {
