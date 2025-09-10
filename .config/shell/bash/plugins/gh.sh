@@ -1,5 +1,5 @@
 ghrc() {
-	repo=$(gh repo list | fzf | awk '{print $1}')
+	repo=$(gh repo list | awk '{print $1}' | fzf)
 	gh repo clone "$repo"
 }
 
