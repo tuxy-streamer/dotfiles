@@ -1,7 +1,16 @@
 return {
-	"ellisonleao/gruvbox.nvim",
+	"navarasu/onedark.nvim",
 	priority = 1000,
 	config = function()
-		vim.cmd([[colorscheme gruvbox]])
+		vim.cmd([[colorscheme onedark]])
 	end,
 }
+
+-- Gruvbox Colorscheme
+-- {
+--
+-- 	"ellisonleao/gruvbox.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 	end,
+-- }
