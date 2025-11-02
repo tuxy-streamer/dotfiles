@@ -36,3 +36,9 @@ export IDF_PATH="$HOME/esp/ESP8266_RTOS_SDK"
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
+
+# foundry
+export PATH="$HOME/.foundry/bin:$PATH"
+
+# OCaml
+test -r '/home/tuxy/.opam/opam-init/init.sh' && . '/home/tuxy/.opam/opam-init/init.sh' >/dev/null 2>/dev/null || true
