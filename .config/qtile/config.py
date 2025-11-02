@@ -22,23 +22,36 @@ def autostart():
     subprocess.call(autostart_script)
 
 
-gruvbox_dark = {
-    "black": "#282828",
-    "red": "#cc241d",
-    "green": "#98971a",
-    "yellow": "#d79921",
-    "blue": "#458588",
-    "magenta": "#b16286",
-    "cyan": "#689d6a",
-    "white": "#a89984",
-    "pale": "#fbf1c7",
+one_dark = {
+    "background": "#282c34",
+    "foreground": "#abb2bf",
+    "red": "#e06c75",
+    "green": "#98c379",
+    "yellow": "#e5c07b",
+    "blue": "#61afef",
+    "magenta": "#c678dd",
+    "cyan": "#56b6c2",
+    "white": "#d7dae0",
 }
 
-COLORSCHEME = gruvbox_dark
+# gruvbox_dark = {
+#     "background": "#282828",
+#     "foreground": "#fbf1c7",
+#     "red": "#cc241d",
+#     "green": "#98971a",
+#     "yellow": "#d79921",
+#     "blue": "#458588",
+#     "magenta": "#b16286",
+#     "cyan": "#689d6a",
+#     "white": "#a89984",
+# }
+
+COLORSCHEME = one_dark
 FONT = "M+CodeLat50"
 MOD = "mod1"
 TERMINAL = "alacritty"
 EMAIL_CLIENT = "betterbird"
+BROWSER = "vivaldi-stable"
 
 keys = [
     Key([MOD], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -134,29 +147,23 @@ groups = [
         matches=[
             Match(wm_class="com.github.xournalpp.xournalpp"),
             Match(wm_class="rnote"),
-            Match(wm_class="notes"),
+            Match(wm_class="logseq"),
+            Match(wm_class="obsidian"),
         ],
         layout="max",
     ),
     Group(
         "2",
         label="web",
-        matches=[Match(wm_class="waterfox")],
-        layout="max",
-    ),
-    Group("3", label="dev", matches=[Match(wm_class="code")], layout="max"),
-    Group(
-        "4",
-        label="chat",
         matches=[
-            Match(wm_class="Telegram"),
-            Match(wm_class="vesktop"),
+            Match(wm_class=BROWSER),
         ],
         layout="max",
     ),
-    Group("5", label="game", matches=[Match(wm_class="mgba-qt")], layout="max"),
-    Group("6", label="passive", matches=[Match(wm_class="easyeffects")]),
-    Group("7", label="virt", matches=[Match(wm_class="virt-manager")]),
+    Group("3", label="dev", matches=[Match(wm_class="code")], layout="max"),
+    Group("4", label="game", matches=[Match(wm_class="mgba-qt")], layout="max"),
+    Group("5", label="passive", matches=[Match(wm_class="easyeffects")]),
+    Group("6", label="virt", matches=[Match(wm_class="virt-manager")]),
 ]
 
 for i in groups:
@@ -207,15 +214,6 @@ groups.append(
                 opacity=0.9,
             ),
             DropDown(
-                "mmpv",
-                f"{TERMINAL} --class=zathura -e zathura",
-                width=0.8,
-                height=0.8,
-                x=0.1,
-                y=0.1,
-                opacity=0.9,
-            ),
-            DropDown(
                 "cmus",
                 f"{TERMINAL} --class=cmus -e cmus",
                 width=0.8,
@@ -233,6 +231,15 @@ groups.append(
                 y=0.1,
                 opacity=0.9,
             ),
+            DropDown(
+                "nm",
+                f"{TERMINAL} --class=nmtui -e nmtui",
+                width=0.8,
+                height=0.8,
+                x=0.1,
+                y=0.1,
+                opacity=0.9,
+            ),
         ],
     )
 )
@@ -242,22 +249,22 @@ keys.extend(
         Key([MOD], "s", lazy.group["scratchpad"].dropdown_toggle("cmus")),
         Key([MOD], "v", lazy.group["scratchpad"].dropdown_toggle("volume")),
         Key([MOD], "b", lazy.group["scratchpad"].dropdown_toggle("btop")),
-        Key([MOD], "y", lazy.group["scratchpad"].dropdown_toggle("mmpv")),
         Key([MOD], "m", lazy.group["scratchpad"].dropdown_toggle("email")),
         Key([MOD], "f", lazy.group["scratchpad"].dropdown_toggle("tfm")),
+        Key([MOD], "w", lazy.group["scratchpad"].dropdown_toggle("nm")),
     ]
 )
 widget_defaults = {
     "font": FONT,
     "fontsize": 16,
     "rounded": False,
-    "background": COLORSCHEME["black"],
-    "foreground": COLORSCHEME["pale"],
-    "active": COLORSCHEME["pale"],
+    "background": COLORSCHEME["background"],
+    "foreground": COLORSCHEME["foreground"],
+    "active": COLORSCHEME["foreground"],
     "inactive": COLORSCHEME["white"],
     "highlight_method": "line",
-    "highlight_color": COLORSCHEME["black"],
-    "this_current_screen_border": COLORSCHEME["pale"],
+    "highlight_color": COLORSCHEME["background"],
+    "this_current_screen_border": COLORSCHEME["foreground"],
 }
 extension_defaults = widget_defaults.copy()
 
@@ -272,10 +279,10 @@ widgets = [
         format="{status_text}  {artist} - {title}",
         play_icon="",
         playing_text="",
-        playing_color=COLORSCHEME["pale"],
+        playing_color=COLORSCHEME["foreground"],
         pause_icon="",
         paused_text="",
-        paused_color=COLORSCHEME["pale"],
+        paused_color=COLORSCHEME["foreground"],
     ),
     widget.Spacer(),
     widget.Battery(
@@ -300,7 +307,7 @@ screens = [
         top=bar.Bar(
             widgets,
             40,
-            background=COLORSCHEME["black"],
+            background=COLORSCHEME["background"],
             margin=0,
             border_width=0,
             opacity=1.0,
@@ -310,25 +317,25 @@ screens = [
 
 layouts = [
     layout.Columns(
-        border_focus=COLORSCHEME["pale"],
-        border_normal=COLORSCHEME["black"],
+        border_focus=COLORSCHEME["foreground"],
+        border_normal=COLORSCHEME["background"],
         border_width=2,
     ),
     layout.Max(
-        border_focus=COLORSCHEME["pale"],
-        border_normal=COLORSCHEME["black"],
+        border_focus=COLORSCHEME["foreground"],
+        border_normal=COLORSCHEME["background"],
     ),
     # Try more layouts by unleashing below layouts.
     layout.Stack(
-        border_focus=COLORSCHEME["pale"],
-        border_normal=COLORSCHEME["black"],
+        border_focus=COLORSCHEME["foreground"],
+        border_normal=COLORSCHEME["background"],
         num_stacks=2,
     ),
     # layout.Bsp(),
     # layout.Matrix(),
     layout.MonadTall(
-        border_focus=COLORSCHEME["pale"],
-        border_normal=COLORSCHEME["black"],
+        border_focus=COLORSCHEME["foreground"],
+        border_normal=COLORSCHEME["background"],
     ),
     # layout.MonadWide(),
     # layout.RatioTile(),
