@@ -5,7 +5,9 @@ tmux_startup() {
 }
 tmux_startup &
 dunst &
-feh --bg-fill --borderless /storage/personal/wallpaper/gruvbox/gruvbox-dark.png &
-brave &
+feh --bg-fill --borderless /storage/personal/wallpaper/onedark/onedark.png &
+# brave &
+vivaldi &
+obsidian &
 easyeffects &
 setxkbmap -option caps:escape &
