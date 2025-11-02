@@ -6,7 +6,7 @@ return {
 		lint.linters_by_ft = {
 			go = { "golangcilint" },
 			lua = { "luacheck" },
-			python = { "ruff", "pydocstyle", "pylint", "vulture" },
+			python = { "ruff" },
 			css = { "stylelint" },
 			markdown = { "markdownlint-cli2" },
 			yaml = { "yamllint" },
@@ -18,6 +18,16 @@ return {
 			sql = { "sqlfluff", "sqruff" },
 			makefile = { "checkmake" },
 		}
+
+		-- -- Mypy
+		-- local venv_python = vim.fn.getcwd() .. "/.venv/bin/python"
+		-- lint.linters.mypy.args = {
+		-- 	"--show-column-numbers",
+		-- 	"--show-error-end",
+		-- 	"--strict",
+		-- 	"--python-executable",
+		-- 	venv_python,
+		-- }
 
 		vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "InsertLeave" }, {
 			callback = function()
