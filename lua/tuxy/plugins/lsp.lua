@@ -28,10 +28,9 @@ return {
 				"golines",
 				"gomodifytags",
 				"gotests",
-				-- Python
-				"pylint",
-				"pydocstyle",
-				"vulture",
+				-- -- Python
+				-- "pylint",
+				-- "pydocstyle",
 				-- Lua
 				"luacheck",
 				"stylua",
@@ -80,6 +79,7 @@ return {
 				"rust_analyzer",
 				"gopls",
 				"ruff",
+				"basedpyright",
 				"marksman",
 				"bashls",
 				"jsonls",
@@ -108,6 +108,15 @@ return {
 									},
 								},
 							},
+						},
+					})
+				end,
+				["ruff"] = function()
+					local lspconfig = require("lspconfig")
+					lspconfig.ruff.setup({
+						capabilities = capabilities,
+						settings = {
+							configuration = "~/.config/lsp/ruff.toml",
 						},
 					})
 				end,
