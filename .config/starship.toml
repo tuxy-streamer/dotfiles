@@ -1,9 +1,29 @@
-palette = "gruvbox_dark"
+palette = "one_dark"
 
 format = "$directory$character"
 right_format = "$all"
 
 command_timeout = 1000
+
+[palettes.one_dark]
+mono0 = '#d7dae0'
+mono1 = '#abb2bf'
+mono2 = '#828997'
+mono3 = '#5c6370'
+mono4 = '#3f4451'
+color_red0 = '#e06c75'
+color_red1 = '#be5046'
+color_green = '#98c379'
+color_yellow = '#e5c07b'
+color_blue = '#61afef'
+color_purple = '#c678dd'
+color_cyan = '#56b6c2'
+color_orange = '#d19a66'
+syntax_fg = '#abb2bf'
+syntax_bg = '#282c34'
+color_bg2 = '#665c54'
+syntax_gutter = '#647382'
+syntax_accent = '#528cff'
 
 [palettes.gruvbox_dark]
 color_fg0 = "#fbf1c7"
