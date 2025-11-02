@@ -1,10 +1,10 @@
 * {
 	font:				"M+CodeLat50 Nerd Font";
-	bg0:				#282828;
-	bg1:				#282828;
-	fg0:				#ebdbb2;
-	accent-color:		#dfbf8e;
-	urgent-color:		#DBBC7F;
+	bg0:				#282c34;
+	bg1:				#282c34;
+	fg0:				#abb2bf;
+	accent-color:		#abb2bf;
+	urgent-color:		#282c34;
 	background-color:	transparent;
 	text-color:			@fg0;
 	margin:				0;

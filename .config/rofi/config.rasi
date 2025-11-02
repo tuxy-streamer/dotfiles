@@ -10,4 +10,4 @@ configuration {
     dpi: 120;
 }
 
-@theme "gruvbox-squared-dark"
+@theme "one-squared-dark"
