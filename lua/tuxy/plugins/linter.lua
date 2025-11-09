@@ -6,7 +6,7 @@ return {
 		lint.linters_by_ft = {
 			go = { "golangcilint" },
 			lua = { "luacheck" },
-			python = { "ruff" },
+			python = { "ruff", "mypy" },
 			css = { "stylelint" },
 			markdown = { "markdownlint-cli2" },
 			yaml = { "yamllint" },

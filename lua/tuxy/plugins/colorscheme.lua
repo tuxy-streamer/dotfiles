@@ -1,10 +1,36 @@
+-- Gruvbox Material Dark
 return {
-	"navarasu/onedark.nvim",
+	"sainnhe/gruvbox-material",
 	priority = 1000,
 	config = function()
-		vim.cmd([[colorscheme onedark]])
+		vim.cmd([[colorscheme gruvbox-material]])
 	end,
 }
+
+-- Solarized Dark
+-- return {
+-- 	"shaunsingh/solarized.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		vim.cmd([[colorscheme solarized]])
+-- 	end,
+-- }
+-- Alabaster
+-- return {
+-- 	"p00f/alabaster.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		vim.cmd([[colorscheme alabaster]])
+-- 	end,
+-- }
+-- Gruvbox Colorscheme
+-- return {
+-- 	"navarasu/onedark.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		vim.cmd([[colorscheme onedark]])
+-- 	end,
+-- }
 
 -- Gruvbox Colorscheme
 -- {
