@@ -1,0 +1,61 @@
+set -o vi
+export CONFIG="$HOME/.config"
+export STORAGE="/storage"
+export SCRIPTS="$CONFIG/shell/scripts"
+export ZSH_PLUGINS="$CONFIG/shell/zsh-plugins"
+export BOOK_LIBRARY="$STORAGE/personal/notes/library"
+
+# Application config move to .config
+export WINEPREFIX="$CONFIG/wine"
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+*":$PNPM_HOME:"*) ;;
+*) PATH="$PNPM_HOME:$PATH" ;;
+esac
+export PATH
+
+# rust
+export PATH="$CONFIG/cargo/bin:$PATH"
+
+# go
+export PATH="$CONFIG/go/bin:$PATH"
+
+# starship
+if [ -n "$ZSH_VERSION" ]; then
+  eval "$(starship init zsh)"
+elif [ -n "$BASH_VERSION" ]; then
+  eval "$(starship init bash)"
+fi
+
+# clipmenu
+export CM_LAUNCHER=rofi
+
+# zoxide
+if [ -n "$ZSH_VERSION" ]; then
+  eval "$(zoxide init zsh)"
+elif [ -n "$BASH_VERSION" ]; then
+  eval "$(zoxide init bash)"
+fi
+
+# esp exports
+export PATH="/home/tuxy/.rustup/toolchains/esp/xtensa-esp-elf/esp-14.2.0_20240906/xtensa-esp-elf/bin:$PATH"
+export LIBCLANG_PATH="/home/tuxy/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-19.1.2_20250225/esp-clang/lib"
+
+# xtensa-lx106
+export PATH="$PATH:$HOME/esp/xtensa-lx106-elf/bin"
+
+# esp8266 idf
+export IDF_PATH="$HOME/esp/ESP8266_RTOS_SDK"
+
+# pyenv
+export PATH="$CONFIG/pyenv/bin:$PATH"
+if command -v pyenv >/dev/null 2>&1; then
+  # pyenv detects shell from environment, but guard just in case
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+fi
+
+# foundry
+export PATH="$CONFIG/foundry/bin:$PATH"

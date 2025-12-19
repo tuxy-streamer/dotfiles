@@ -1,3 +1,0 @@
-source "$HOME/.config/shell/core/env.sh"
-source "$HOME/.config/shell/core/alias.sh"
-source "$HOME/.config/shell/bash/plugins/init.sh"
