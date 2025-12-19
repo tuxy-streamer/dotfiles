@@ -1,0 +1,46 @@
+palette = "one_dark"
+format = "$directory$character"
+right_format = "$all"
+command_timeout = 1000
+
+[palettes.one_dark]
+mono0 = "#d7dae0"
+mono1 = "#abb2bf"
+mono2 = "#828997"
+mono3 = "#5c6370"
+mono4 = "#3f4451"
+color_red0 = "#e06c75"
+color_red1 = "#be5046"
+color_green = "#98c379"
+color_yellow = "#e5c07b"
+color_blue = "#61afef"
+color_purple = "#c678dd"
+color_cyan = "#56b6c2"
+color_orange = "#d19a66"
+syntax_fg = "#abb2bf"
+syntax_bg = "#282c34"
+color_bg2 = "#665c54"
+syntax_gutter = "#647382"
+syntax_accent = "#528cff"
+
+[palettes.gruvbox_dark]
+color_fg0 = "#fbf1c7"
+color_red = "#cc241d"
+color_aqua = "#689d6a"
+
+[directory]
+style = "fg:color_fg0"
+read_only = " 󰌾"
+
+[git_branch]
+symbol = ""
+format = "[$symbol$branch(:$remote_branch)]($style)"
+
+[git_status]
+format = "[$all_status$ahead_behind]($style)"
+style = "fg:color_fg0 bg:color_aqua"
+
+[character]
+disabled = false
+success_symbol = "[>](fg:color_fg0)"
+error_symbol = "[>](fg:color_red)"

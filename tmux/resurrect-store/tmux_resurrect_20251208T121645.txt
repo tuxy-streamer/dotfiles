@@ -1,0 +1,45 @@
+pane	adventofcode	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/adventofcode	:/storage/projects/repos/adventofcode	1	nvim	:nvim
+pane	adventofcode	2	0	:	0	tuxy@archlinux:/storage/projects/repos/adventofcode	:/storage/projects/repos/adventofcode	1	bash	:
+pane	alacritty	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/alacritty	:/storage/projects/repos/dotfiles/.config/alacritty	1	nvim	:nvim alacritty.toml
+pane	autostart	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config	:/storage/projects/repos/dotfiles/.config	1	nvim	:nvim autostart.sh
+pane	dsago	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dsago	:/storage/projects/repos/dsago	1	nvim	:nvim
+pane	dunst	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/dunst	:/storage/projects/repos/dotfiles/.config/dunst	1	nvim	:nvim dunstrc
+pane	evalsuite	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/Evalsuite/backend	:/storage/projects/repos/Evalsuite/backend	1	nvim	:nvim
+pane	evalsuite	2	0	:	0	tuxy@archlinux:/storage/projects/repos/Evalsuite	:/storage/projects/repos/Evalsuite	1	bash	:
+pane	kitty	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/kitty	:/storage/projects/repos/dotfiles/.config/kitty	1	nvim	:nvim kitty.conf
+pane	mini-project	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/mini-project	:/storage/projects/repos/mini-project	1	nvim	:nvim
+pane	mini-project	2	0	:	0	tuxy@archlinux:/storage/projects/repos/mini-project	:/storage/projects/repos/mini-project	1	bash	:
+pane	mini-project	3	0	:	0	tuxy@archlinux:/storage/projects/repos/mini-project	:/storage/projects/repos/mini-project	1	bash	:
+pane	notes	1	1	:*	0	tuxy@archlinux:/storage/personal/notes	:/storage/personal/notes	1	nvim	:nvim
+pane	nvim	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/nvim	:/storage/projects/repos/dotfiles/.config/nvim	1	nvim	:nvim
+pane	nvim	2	0	:	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/nvim	:/storage/projects/repos/dotfiles/.config/nvim	1	bash	:
+pane	picom	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/picom	:/storage/projects/repos/dotfiles/.config/picom	1	nvim	:nvim picom.conf
+pane	qtile	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/qtile	:/storage/projects/repos/dotfiles/.config/qtile	1	nvim	:nvim config.py
+pane	qutebrowser	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/qutebrowser	:/storage/projects/repos/dotfiles/.config/qutebrowser	1	nvim	:nvim config.py
+pane	rofi	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/rofi	:/storage/projects/repos/dotfiles/.config/rofi	1	nvim	:nvim
+pane	scoped-rag	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/scoped-rag	:/storage/projects/repos/scoped-rag	1	bash	:
+pane	shell	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/shell	:/storage/projects/repos/dotfiles/.config/shell	1	nvim	:nvim core/alias.sh
+pane	tmux	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/tmux	:/storage/projects/repos/dotfiles/.config/tmux	1	nvim	:nvim tmux.conf
+window	adventofcode	1	:nvim	1	:*	b3fe,145x32,0,0,1	:
+window	adventofcode	2	:git	0	:	cfff,145x39,0,0,2	off
+window	alacritty	1	:nvim	1	:*	c340,172x36,0,0,3	:
+window	autostart	1	:nvim	1	:*	d001,145x39,0,0,4	:
+window	dsago	1	:nvim	1	:*	be62,84x36,0,0,5	:
+window	dunst	1	:nvim	1	:*	d003,145x39,0,0,6	:
+window	evalsuite	1	:nvim	1	:*	b404,145x32,0,0,7	:
+window	evalsuite	2	:git	0	:	d005,145x39,0,0,8	off
+window	kitty	1	:nvim	1	:*	d006,145x39,0,0,9	:
+window	mini-project	1	:nvim	1	:*	5d4f,159x33,0,0,10	:
+window	mini-project	2	:lazygit	0	:	5d50,159x33,0,0,11	off
+window	mini-project	3	:gh	0	:	5d51,159x33,0,0,12	off
+window	notes	1	:nvim	1	:*	5a32,145x32,0,0,13	:
+window	nvim	1	:nvim	1	:*	5a33,145x32,0,0,14	off
+window	nvim	2	:git	0	:	5a34,145x32,0,0,15	off
+window	picom	1	:nvim	1	:*	6525,68x29,0,0,16	:
+window	qtile	1	:nvim	1	:*	5a36,145x32,0,0,17	:
+window	qutebrowser	1	:nvim	1	:*	6837,145x39,0,0,18	:
+window	rofi	1	:nvim	1	:*	5a38,145x32,0,0,19	:
+window	scoped-rag	1	:bash	1	:*	e82f,145x39,0,0,20	:
+window	shell	1	:nvim	1	:*	da30,145x32,0,0,21	:
+window	tmux	1	:nvim	1	:*	da31,145x32,0,0,22	:
+state	notes	

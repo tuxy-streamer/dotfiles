@@ -1,0 +1,31 @@
+pane	adventofcode	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/adventofcode	:/storage/projects/repos/adventofcode	1	nvim	:nvim
+pane	alacritty	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/alacritty	:/storage/projects/repos/dotfiles/.config/alacritty	1	nvim	:nvim alacritty.toml
+pane	autostart	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config	:/storage/projects/repos/dotfiles/.config	1	nvim	:nvim autostart.sh
+pane	dsago	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dsago	:/storage/projects/repos/dsago	1	nvim	:nvim
+pane	evalsuite	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/Evalsuite/backend	:/storage/projects/repos/Evalsuite/backend	1	nvim	:nvim
+pane	kitty	1	1	:*	0	tuxy@archlinux:~/.config/kitty	:/storage/projects/repos/dotfiles/.config/kitty	1	nvim	:nvim kitty.conf
+pane	mini-project	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/mini-project	:/storage/projects/repos/mini-project	1	nvim	:nvim
+pane	mini-project	2	0	:	0	tuxy@archlinux:/storage/projects/repos/mini-project	:/storage/projects/repos/mini-project	1	bash	:
+pane	mini-project	3	0	:	0	tuxy@archlinux:/storage/projects/repos/mini-project	:/storage/projects/repos/mini-project	1	bash	:
+pane	nvim	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/nvim	:/storage/projects/repos/dotfiles/.config/nvim	1	nvim	:nvim
+pane	picom	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/picom	:/storage/projects/repos/dotfiles/.config/picom	1	nvim	:nvim picom.conf
+pane	qtile	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/qtile	:/storage/projects/repos/dotfiles/.config/qtile	1	nvim	:nvim config.py
+pane	rofi	1	1	:*	0	tuxy@archlinux:~/.config/rofi	:/storage/projects/repos/dotfiles/.config/rofi	1	nvim	:nvim
+pane	shell	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/shell	:/storage/projects/repos/dotfiles/.config/shell	1	nvim	:nvim core/alias.sh
+pane	tmux	1	1	:*	0	tuxy@archlinux:/storage/projects/repos/dotfiles/.config/tmux	:/storage/projects/repos/dotfiles/.config/tmux	1	nvim	:nvim tmux.conf
+window	adventofcode	1	:nvim	1	:*	c2be,171x36,0,0,1	:
+window	alacritty	1	:nvim	1	:*	c33f,172x36,0,0,2	:
+window	autostart	1	:nvim	1	:*	ba40,159x33,0,0,3	:
+window	dsago	1	:nvim	1	:*	be61,84x36,0,0,4	:
+window	evalsuite	1	:nvim	1	:*	d002,145x39,0,0,5	:
+window	kitty	1	:nvim	1	:*	6833,145x39,0,0,14	:
+window	mini-project	1	:nvim	1	:*	ba43,159x33,0,0,6	:
+window	mini-project	2	:lazygit	0	:	ba44,159x33,0,0,7	off
+window	mini-project	3	:gh	0	:	ba45,159x33,0,0,8	off
+window	nvim	1	:nvim	1	:*	d006,145x39,0,0,9	:
+window	picom	1	:nvim	1	:*	651f,68x29,0,0,10	:
+window	qtile	1	:nvim	1	:*	6830,145x39,0,0,11	:
+window	rofi	1	:nvim	1	:*	6834,145x39,0,0,15	:
+window	shell	1	:nvim	1	:*	5d51,159x33,0,0,12	:
+window	tmux	1	:nvim	1	:*	61d2,172x36,0,0,13	:
+state	nvim	evalsuite
