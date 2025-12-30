@@ -3,12 +3,11 @@ include Alabaster Dark.conf
 
 
 # Fonts
-font_family      family="Hack Nerd Font Mono"
-bold_font        auto
-italic_font      auto
-bold_italic_font auto
+# bold_font        auto
+# italic_font      auto
+# bold_italic_font auto
 font_size 16
-disable_ligature never
+disable_ligature always
 
 # Cursor
 cursor_shape block
@@ -1974,3 +1973,11 @@ allow_remote_control yes
 
 #: }}}
 
+
+
+# BEGIN_KITTY_FONTS
+font_family      family="BitstromWera Nerd Font Mono"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS
