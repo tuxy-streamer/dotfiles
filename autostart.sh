@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-source "$HOME/.bashrc"
 
 touchpad_setup() {
   touchpad="ELAN0787:00 04F3:321A Touchpad"
@@ -17,13 +16,12 @@ touchpad_setup() {
 
 touchpad_setup &
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark" &
-tmux_startup &
 dunst &
 feh --bg-fill --borderless /storage/personal/wallpaper/gruvbox/girl-reading-book.png &
 # hyprpaper &
-zen-twilight &
+# zen-twilight &
 easyeffects &
 setxkbmap -option caps:escape &
 # picom &
 sleep 3 && time_main &
-syncthing &
+# syncthing &
