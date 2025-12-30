@@ -56,6 +56,10 @@ if command -v pyenv >/dev/null 2>&1; then
   eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
 fi
+export PYTHON_ENV_ACTIVATE=false
 
 # foundry
 export PATH="$CONFIG/foundry/bin:$PATH"
+
+# autocompletions
+[[ -n "$ZSH_VERSION" ]] && autoload -U compinit && compinit
