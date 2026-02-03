@@ -10,4 +10,4 @@ configuration {
     dpi: 120;
 }
 
-@theme "alabaster_dark.rasi"
+@theme "kanagawa-squared-dark.rasi"
