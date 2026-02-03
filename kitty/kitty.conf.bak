@@ -1,5 +1,5 @@
 #Theme
-include Alabaster Dark.conf
+include Kanagawa.conf
 
 
 # Fonts
@@ -337,6 +337,7 @@ sync_to_monitor no
 
 # Window
 # window_margin_width 10
+
 window_padding_width 10
 hide_window_decorations yes
 confirm_os_window_close 0
@@ -1065,7 +1066,7 @@ allow_remote_control yes
 #:     # Do not clear previous notification when next command finishes or window regains focus
 #:     notify_on_cmd_finish invisible 5.0 notify
 
-# term xterm-kitty
+term xterm-kitty
 
 #: The value of the TERM environment variable to set. Changing this
 #: can break many terminal programs, only change it if you know what
@@ -1976,7 +1977,7 @@ allow_remote_control yes
 
 
 # BEGIN_KITTY_FONTS
-font_family      family="BitstromWera Nerd Font Mono"
+font_family      family="RobotoMono Nerd Font Mono"
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
