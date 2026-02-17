@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 cd() {
   builtin cd "$@" || return
   [[ -d ".venv" ]] && [[ -z "$VIRTUAL_ENV" ]] && source .venv/bin/activate

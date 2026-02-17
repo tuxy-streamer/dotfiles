@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 book_list=$(fd . -t file "$BOOK_LIBRARY")
 
 get_books() {
