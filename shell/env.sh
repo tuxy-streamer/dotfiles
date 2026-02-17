@@ -8,6 +8,9 @@ export BOOK_LIBRARY="$STORAGE/personal/notes/library"
 # Application config move to .config
 export WINEPREFIX="$CONFIG/wine"
 
+# Man
+export MANPAGER="nvim +Man!"
+
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
