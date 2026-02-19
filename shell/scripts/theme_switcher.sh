@@ -55,7 +55,7 @@ theme_switch_launcher(){
     local selected
 
     selected=$( printf "%s\n" "${themes[@]}" | sort | rofi -dmenu)
-    theme_switcher "$selected"
+    [[ -n "$selected" ]] &&  theme_switcher "$selected"
 }
 
 theme_switcher(){
