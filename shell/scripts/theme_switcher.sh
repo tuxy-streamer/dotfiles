@@ -17,52 +17,115 @@ themes=(
 current_theme=""
 
 detect_current_theme(){
-    local theme_line
-
     theme_line=$(grep "source = ~/.config/hypr/colors/" "$CONFIG"/hypr/hyprland.conf)
     current_theme=$(echo "$theme_line" | cut -d '/' -f 5 | cut -d '.' -f 1)
+}
 
-    echo "$theme_line"
-    echo "$current_theme"
+theme_colors(){
+    theme="$1"
+    case "$theme" in
+        kanagawa)
+            theme_color_bg=dcd7ba
+            theme_color_fg=1f1f28
+            echo "$theme_color_bg $theme_color_fg"
+            return
+            ;;
+        gruvbox)
+            theme_color_bg=fbf1c7
+            theme_color_fg=282828
+            echo "$theme_color_bg $theme_color_fg"
+            ;;
+        gruvbox-material)
+            theme_color_bg=d4be98
+            theme_color_fg=282828
+            echo "$theme_color_bg $theme_color_fg"
+            ;;
+        everforest)
+            theme_color_bg=a7c080
+            theme_color_fg=272e33
+            echo "$theme_color_bg $theme_color_fg"
+            ;;
+        catppuccin)
+            theme_color_bg=b4befe
+            theme_color_fg=1e1e2e
+            echo "$theme_color_bg $theme_color_fg"
+            ;;
+        alabaster)
+            theme_color_bg=777777
+            theme_color_fg=323738
+            echo "$theme_color_bg $theme_color_fg"
+            ;;
+        nord)
+            theme_color_bg=81a1c1
+            theme_color_fg=2e3440
+            echo "$theme_color_bg $theme_color_fg"
+            ;;
+        onedark)
+            theme_color_bg=abb2bf
+            theme_color_fg=282c34
+            echo "$theme_color_bg $theme_color_fg"
+            ;;
+        dracula)
+            theme_color_bg=bd93f9
+            theme_color_fg=282a36
+            echo "$theme_color_bg $theme_color_fg"
+            ;;
+        solarized-dark)
+            theme_color_bg=a57705
+            theme_color_fg=002b36
+            echo "$theme_color_bg $theme_color_fg"
+            ;;
+    esac
 }
 
 hypr_theme_switcher(){
-    local new_line, old_line
+    theme="$1"
+    read -r bg_color accent_color <<< "$(theme_colors "$theme")"
+    old_line_1="col.active_border = rgb(.*)"
+    old_line_2="col.inactive_border = rgb(.*)"
+    new_line_1="col.active_border = rgb($bg_color)"
+    new_line_2="col.inactive_border = rgb($accent_color)"
 
-    new_line="source = ~/.config/hypr/colors/$1.conf"
-    old_line="source = ~/.config/hypr/colors/.*\.conf"
-    sed -i "s|^$old_line|$new_line|" "$CONFIG"/hypr/hyprland.conf
+    sed -i "s|$old_line_1|$new_line_1|" "$CONFIG/hypr/conf/general.conf"
+    sed -i "s|$old_line_2|$new_line_2|" "$CONFIG/hypr/conf/general.conf"
 }
 
 
 kitty_theme_switcher(){
-    local new_line, old_line
-
     new_line="include $1.conf"
     old_line="include .*\.conf"
+
     sed -i "s|^$old_line|$new_line|" "$CONFIG"/kitty/kitty.conf
 }
 
 rofi_theme_switcher(){
-    local new_line, old_line
+    theme="$1"
+    read -r accent_color bg_color<<< "$(theme_colors "$theme")"
+    old_line_1="    bg0:				.*;"
+    old_line_2="    fg0:				.*;"
+    new_line_1="    bg0:				#$bg_color;"
+    new_line_2="    fg0:				#$accent_color;"
 
-    new_line="@theme \"$1.rasi\""
-    old_line="@theme \".*\.rasi\""
-    sed -i "s|^$old_line|$new_line|" "$CONFIG"/rofi/config.rasi
+    sed -i "s|^$old_line_1|$new_line_1|" "$CONFIG"/rofi/colors.rasi
+    sed -i "s|^$old_line_2|$new_line_2|" "$CONFIG"/rofi/colors.rasi
+}
+
+dunst_theme_switcher(){
+    old_line="foreground = \".*\""
+    new_line=""
+
+    sed -i "s|^$old_line|$new_line|g" "$CONFIG"/rofi/config.rasi
 }
 
 theme_switch_launcher(){
-    local selected
-
     selected=$( printf "%s\n" "${themes[@]}" | sort | rofi -dmenu)
     [[ -n "$selected" ]] &&  theme_switcher "$selected"
 }
 
 theme_switcher(){
     detect_current_theme
-    echo "$current_theme"
     theme="$1"
-    [[ "$theme" == "$current_theme" ]] && echo "This is the current theme." && return
+    [[ "$theme" == "$current_theme" ]] && return
     hypr_theme_switcher "$theme"
     kitty_theme_switcher "$theme"
     rofi_theme_switcher "$theme"
