@@ -13,14 +13,6 @@ themes=(
     "solarized-dark"
 )
 
-# Detect current theme
-current_theme=""
-
-detect_current_theme(){
-    theme_line=$(grep "source = ~/.config/hypr/colors/" "$CONFIG"/hypr/hyprland.conf)
-    current_theme=$(echo "$theme_line" | cut -d '/' -f 5 | cut -d '.' -f 1)
-}
-
 theme_colors(){
     theme="$1"
     case "$theme" in
@@ -123,9 +115,7 @@ theme_switch_launcher(){
 }
 
 theme_switcher(){
-    detect_current_theme
     theme="$1"
-    [[ "$theme" == "$current_theme" ]] && return
     hypr_theme_switcher "$theme"
     kitty_theme_switcher "$theme"
     rofi_theme_switcher "$theme"
