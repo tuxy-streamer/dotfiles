@@ -1,0 +1,76 @@
+* {
+    font:				"Terminess Nerd Font Mono";
+    bg0:				#1f1f28;
+    fg0:				#dcd7ba;
+    accent-color:		@fg0;
+    background-color:	transparent;
+    text-color:			@fg0;
+    margin:				0;
+    padding:			0;
+    spacing:			0;
+}
+
+window {
+    location:			center;
+    width:				480;
+    background-color:	@bg0;
+    border:				2px;
+    border-color:		@fg0;
+    border-radius:      10px;
+}
+
+inputbar {
+    spacing:			10px; 
+    padding:			10px;
+    background-color:	@bg0;
+}
+
+prompt, entry, element-icon, element-text {
+    vertical-align:	    0.5;
+}
+
+prompt {
+    enabled:            false;
+    padding:			10px;
+}
+
+entry {
+    enabled:            true;
+    cursor:             text;
+    padding:            10px 20px;
+    placeholder:        "Search...";
+    placeholder-color:  inherit;
+}
+
+textbox {
+    padding:			10px;
+    background-color:	@bg0;
+}
+
+listview {
+    padding:		    -5px 0px 20px 20px;
+    lines:			    8;
+    columns:		    1;
+    fixed-height:	    true;
+}
+
+element {
+    padding:	        10px;
+    spacing:	        10px;
+}
+
+element normal normal {
+    text-color:         @fg0;
+}
+
+element normal active {
+    text-color:	        @accent-color;
+}
+
+element-icon {
+    size:           	0.8em;
+}
+
+element-text {
+    text-color:	        inherit;
+}
