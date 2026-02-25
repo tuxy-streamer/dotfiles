@@ -1,4 +1,5 @@
 {
+  "Revision": "0.6.6.2",
   "Profiles": [
     {
       "Tablet": "Huion H640P",
@@ -7,7 +8,222 @@
         "Settings": [],
         "Enable": true
       },
-      "Filters": [],
+      "Filters": [
+        {
+          "Path": "RadialFollow.RadialFollowSmoothingScreenSpace",
+          "Settings": [
+            {
+              "Property": "OuterRadius",
+              "Value": 5.0
+            },
+            {
+              "Property": "InnerRadius",
+              "Value": 0.0
+            },
+            {
+              "Property": "SmoothingCoefficient",
+              "Value": 0.95
+            },
+            {
+              "Property": "SoftKneeScale",
+              "Value": 1.0
+            },
+            {
+              "Property": "SmoothingLeakCoefficient",
+              "Value": 0.0
+            }
+          ],
+          "Enable": true
+        },
+        {
+          "Path": "RadialFollow.RadialFollowSmoothingTabletSpace",
+          "Settings": [
+            {
+              "Property": "OuterRadius",
+              "Value": 1.0
+            },
+            {
+              "Property": "InnerRadius",
+              "Value": 0.0
+            },
+            {
+              "Property": "SmoothingCoefficient",
+              "Value": 0.95
+            },
+            {
+              "Property": "SoftKneeScale",
+              "Value": 1.0
+            },
+            {
+              "Property": "SmoothingLeakCoefficient",
+              "Value": 0.0
+            }
+          ],
+          "Enable": true
+        },
+        {
+          "Path": "TabletDriverFilters.Devocub.Antichatter",
+          "Settings": [
+            {
+              "Property": "Latency",
+              "Value": 2.0
+            },
+            {
+              "Property": "AntichatterStrength",
+              "Value": 3.0
+            },
+            {
+              "Property": "AntichatterMultiplier",
+              "Value": 1.0
+            },
+            {
+              "Property": "AntichatterOffsetX",
+              "Value": null
+            },
+            {
+              "Property": "AntichatterOffsetY",
+              "Value": 1.0
+            },
+            {
+              "Property": "PredictionEnabled",
+              "Value": null
+            },
+            {
+              "Property": "PredictionStrength",
+              "Value": 1.1
+            },
+            {
+              "Property": "PredictionSharpness",
+              "Value": 1.0
+            },
+            {
+              "Property": "PredictionOffsetX",
+              "Value": 3.0
+            },
+            {
+              "Property": "PredictionOffsetY",
+              "Value": 0.3
+            },
+            {
+              "Property": "Frequency",
+              "Value": 1000.0
+            }
+          ],
+          "Enable": true
+        },
+        {
+          "Path": "TemporalResampler",
+          "Settings": [
+            {
+              "Property": "frameShift",
+              "Value": 0.5
+            },
+            {
+              "Property": "followRadius",
+              "Value": 0.0
+            },
+            {
+              "Property": "latency",
+              "Value": 0.0
+            },
+            {
+              "Property": "reverseSmoothing",
+              "Value": 1.0
+            },
+            {
+              "Property": "extraFrames",
+              "Value": true
+            },
+            {
+              "Property": "loggingEnabled",
+              "Value": false
+            },
+            {
+              "Property": "Frequency",
+              "Value": 1000.0
+            }
+          ],
+          "Enable": true
+        },
+        {
+          "Path": "BetterCalibrator.BetterCalibrator",
+          "Settings": [
+            {
+              "Property": "ConfigString",
+              "Value": ""
+            }
+          ],
+          "Enable": false
+        },
+        {
+          "Path": "tablet_calibration.tablet_calibration_stretch_tablet",
+          "Settings": [
+            {
+              "Property": "left_stretch",
+              "Value": 1.0
+            },
+            {
+              "Property": "right_stretch",
+              "Value": 1.0
+            },
+            {
+              "Property": "top_stretch",
+              "Value": 1.0
+            },
+            {
+              "Property": "bottom_stretch",
+              "Value": 1.0
+            },
+            {
+              "Property": "x_offset",
+              "Value": 0.0
+            },
+            {
+              "Property": "y_offset",
+              "Value": 0.0
+            },
+            {
+              "Property": "disable_clamping",
+              "Value": true
+            }
+          ],
+          "Enable": true
+        },
+        {
+          "Path": "tablet_calibration.tablet_calibration_stretch_area",
+          "Settings": [
+            {
+              "Property": "left_stretch",
+              "Value": 1.0
+            },
+            {
+              "Property": "right_stretch",
+              "Value": 1.0
+            },
+            {
+              "Property": "top_stretch",
+              "Value": 1.0
+            },
+            {
+              "Property": "bottom_stretch",
+              "Value": 1.0
+            },
+            {
+              "Property": "x_offset",
+              "Value": 0.0
+            },
+            {
+              "Property": "y_offset",
+              "Value": 0.0
+            },
+            {
+              "Property": "disable_clamping",
+              "Value": null
+            }
+          ],
+          "Enable": true
+        }
+      ],
       "AbsoluteModeSettings": {
         "Display": {
           "Width": 1920.0,
@@ -18,14 +234,14 @@
         },
         "Tablet": {
           "Width": 160.0,
-          "Height": 100.0,
+          "Height": 90.0,
           "X": 80.0,
           "Y": 50.0,
           "Rotation": 0.0
         },
         "EnableClipping": true,
         "EnableAreaLimiting": false,
-        "LockAspectRatio": false
+        "LockAspectRatio": true
       },
       "RelativeModeSettings": {
         "XSensitivity": 10.0,
@@ -79,7 +295,9 @@
         ],
         "MouseButtons": [],
         "MouseScrollUp": null,
-        "MouseScrollDown": null
+        "MouseScrollDown": null,
+        "DisablePressure": false,
+        "DisableTilt": false
       }
     }
   ],
