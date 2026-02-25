@@ -8,9 +8,9 @@ themes=(
     "kanagawa"
     "everforest"
     "dracula"
-    "catppuccin"
+    "catppuccin-mocha"
     "alabaster"
-    "solarized-dark"
+    "solarized"
 )
 
 theme_colors(){
@@ -37,7 +37,7 @@ theme_colors(){
             theme_color_fg=272e33
             echo "$theme_color_bg $theme_color_fg"
             ;;
-        catppuccin)
+        catppuccin-mocha)
             theme_color_bg=b4befe
             theme_color_fg=1e1e2e
             echo "$theme_color_bg $theme_color_fg"
@@ -62,7 +62,7 @@ theme_colors(){
             theme_color_fg=282a36
             echo "$theme_color_bg $theme_color_fg"
             ;;
-        solarized-dark)
+        solarized)
             theme_color_bg=a57705
             theme_color_fg=002b36
             echo "$theme_color_bg $theme_color_fg"
