@@ -109,6 +109,14 @@ dunst_theme_switcher(){
     sed -i "s|^$old_line|$new_line|g" "$CONFIG"/rofi/config.rasi
 }
 
+nvim_theme_switcher(){
+	theme="$1"
+	old_line="vim.cmd(\"colorscheme .*\")"
+	new_line="vim.cmd(\"colorscheme $theme\")"
+
+    sed -i "s|^$old_line|$new_line|g" "$CONFIG"/nvim/lua/tuxy.lua
+}
+
 theme_switch_launcher(){
     selected=$( printf "%s\n" "${themes[@]}" | sort | rofi -dmenu)
     [[ -n "$selected" ]] &&  theme_switcher "$selected"
@@ -119,4 +127,5 @@ theme_switcher(){
     hypr_theme_switcher "$theme"
     kitty_theme_switcher "$theme"
     rofi_theme_switcher "$theme"
+    nvim_theme_switcher "$theme"
 }
