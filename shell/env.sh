@@ -7,6 +7,7 @@ export BOOK_LIBRARY="$STORAGE/personal/notes/library"
 
 # Application config move to .config
 export WINEPREFIX="$CONFIG/wine"
+export W3M_DIR="$CONFIG/wine"
 
 # Man
 export MANPAGER="nvim +Man!"
@@ -41,16 +42,6 @@ if [ -n "$ZSH_VERSION" ]; then
 elif [ -n "$BASH_VERSION" ]; then
   eval "$(zoxide init bash)"
 fi
-
-# esp exports
-export PATH="/home/tuxy/.rustup/toolchains/esp/xtensa-esp-elf/esp-14.2.0_20240906/xtensa-esp-elf/bin:$PATH"
-export LIBCLANG_PATH="/home/tuxy/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-19.1.2_20250225/esp-clang/lib"
-
-# xtensa-lx106
-export PATH="$PATH:$HOME/esp/xtensa-lx106-elf/bin"
-
-# esp8266 idf
-export IDF_PATH="$HOME/esp/ESP8266_RTOS_SDK"
 
 # pyenv
 export PATH="$CONFIG/pyenv/bin:$PATH"
