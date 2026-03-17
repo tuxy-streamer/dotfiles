@@ -2,5 +2,3 @@
 source "$HOME/.config/shell/env.sh"
 source "$HOME/.config/shell/alias.sh"
 source "$SCRIPTS/init.sh"
-
-bind '"\C-a":"tmux_open\n"'

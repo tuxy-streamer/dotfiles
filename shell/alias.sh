@@ -1,5 +1,4 @@
 alias lah='ls -lah --group-directories-first --color=always'
-alias gr='cd /storage/projects/repos/$(ls /storage/projects/repos | fzf)'
 
 os=$(grep '^ID=' /etc/os-release | cut -d'=' -f2 | tr -d '"')
 case "$os" in
